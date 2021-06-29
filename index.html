@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--CSS-->
+    <link rel="stylesheet" href="/styles/global.css">
+    <link rel="stylesheet" href="/styles/calculadora.css">
+
+    <!--FONT  AWESOME-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+
+
+    <title>Utility Kit</title>
+</head>
+
+<body>
+    <main>
+        <nav>
+            <ul class="menu">
+                <li class="menu-item">
+                    <img src="/images/calculadora.svg" alt="Calculadora">
+                </li>
+                <li class="menu-item">
+                    <img src="/images/cronometro.svg" alt="Crônometro">
+                </li>
+                <li class="menu-item">
+                    <img src="/images/timer-regressivo.svg" alt="Timer regressivo">
+                </li>
+            </ul>
+        </nav>
+        <div class="content">
+            <div class="container-calc">
+                <section class="view-calc">
+                    <div class="calculos-realizados">10+15+25</div>
+                    <div class="resultado">
+                        <div class="operacao-atual">+</div>
+                        <div class="valor">100</div>
+                    </div>
+                </section>
+                <section class="botoes">
+                    <button data-funcionalidade='on'>On</button>
+                    <button data-funcionalidade="off" hidden>Off</button>
+                    <button data-funcionalidade="limpar">C</button>
+                    <button data-operacao="divisao">/</button>
+                    <button data-operacao="multiplicacao">X</button>
+                    <button data-number="7">7</button>
+                    <button data-number="8">8</button>
+                    <button data-number="9">9</button>
+                    <button data-operacao="substracao">-</button>
+                    <button data-number="4">4</button>
+                    <button data-number="5">5</button>
+                    <button data-number="6">6</button>
+                    <button data-operacao="soma">+</button>
+                    <button data-number="1">1</button>
+                    <button data-number="2">2</button>
+                    <button data-number="3">3</button>
+                    <button data-operacao="resultado">=</button>
+                    <button data-number=".">.</button>
+                    <button data-number="0">0</button>
+                    <button data-funcionalidade="apagar"><i class="fas fa-backspace"></i></button>
+                </section>
+            </div>
+        </div>
+
+    </main>
+
+    <!--Font Awesome-->
+    <script src="https://kit.fontawesome.com/2dd83fe1c7.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
