@@ -1,14 +1,6 @@
-:root {
-    --color-btn-number: #272727;
-    --color-btn-funcionalidade: #2A2A2A;
-    --orange: #FF2700;
-    --white: #FFF;
-}
-
 .content .container-calc {
     width: 100%;
     height: 100%;
-    font-family: 'Roboto', sans-serif;
 }
 
 

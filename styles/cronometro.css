@@ -9,9 +9,20 @@
 }
 
 .container-cron .timer {
-    padding: 18rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60vw;
+    height: 60vw;
+    max-width: 50rem;
+    max-height: 50rem;
+    border: .1rem solid var(--black);
     border-radius: 50%;
-    background-color: brown;
+    margin-bottom: 3rem;
+}
+
+.container-cron .timer p {
+    font-size: clamp(3rem, 7vw, 10rem);
 }
 
 .container-cron .actions {

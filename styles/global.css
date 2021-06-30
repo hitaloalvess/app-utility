@@ -7,11 +7,18 @@
     box-sizing: border-box;
 }
 
-html {
-    font-size: 62.5%;
+:root {
+    --color-btn-number: #272727;
+    --color-btn-funcionalidade: #2A2A2A;
+    --orange: #F55E15;
+    --white: #FFF;
     --black: rgb(0, 0, 0);
     --white: #FAFAFA;
     --backgroud: rgb(224, 218, 218);
+}
+
+html {
+    font-size: 62.5%;
 }
 
 body {
@@ -80,6 +87,25 @@ main .content {
     align-items: center;
     border-radius: 24px;
     background-color: var(--white);
+    font-family: 'Roboto', sans-serif;
+}
+
+
+/*BOTÃO*/
+
+.btn-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem;
+    background-color: var(--orange);
+    color: var(--white);
+    border-radius: 50%;
+}
+
+.btn-circle.large {
+    padding: 5rem 7rem;
+    border-radius: 6rem;
 }
 
 
