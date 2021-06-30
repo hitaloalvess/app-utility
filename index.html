@@ -9,6 +9,7 @@
     <!--CSS-->
     <link rel="stylesheet" href="/styles/global.css">
     <link rel="stylesheet" href="/styles/calculadora.css">
+    <link rel="stylesheet" href="/styles/cronometro.css">
 
     <!--FONT  AWESOME-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
@@ -33,7 +34,25 @@
             </ul>
         </nav>
         <div class="content">
-            <div class="container-calc">
+            <div class="container-cron">
+                <div class="timer">
+                    <p>00:00:00</p>
+                </div>
+                <div class="actions">
+                    <div class="play">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <div class="stop">
+                        <i class="fas fa-stop"></i>
+                        <p class="stop">Stop</p>
+                    </div>
+                    <div class="pause">
+                        <i class="fas fa-pause"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="container-calc">
                 <section class="view-calc">
                     <div class="calculos-realizados">50+50</div>
                     <span class="resultado">
@@ -64,7 +83,7 @@
                     <button data-funcionalidade="apagar"><i class="fas fa-backspace"></i></button>
                 </section>
             </div>
-        </div>
+        </div> -->
 
     </main>
 
