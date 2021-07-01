@@ -14,21 +14,61 @@
     align-items: center;
     width: 60vw;
     height: 60vw;
-    max-width: 50rem;
-    max-height: 50rem;
-    border: .1rem solid var(--black);
+    max-width: 40rem;
+    max-height: 40rem;
+    border: 1rem solid var(--black);
     border-radius: 50%;
-    margin-bottom: 3rem;
+    margin-bottom: 5rem;
 }
 
 .container-cron .timer p {
-    font-size: clamp(3rem, 7vw, 10rem);
+    font-size: clamp(3rem, 9vw, 8rem);
 }
 
 .container-cron .actions {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
-.container-cron .actions .stop {
-    display: inline-block;
+.container-cron .actions .play {
+    margin: 0 5%;
+}
+
+.container-cron .actions .btn-circle {
+    position: relative;
+    width: clamp(4.5rem, 8vw, 8rem);
+    height: clamp(4.5rem, 8vw, 8rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: .1rem solid var(--orange);
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 99;
+}
+
+.container-cron .actions .btn-circle::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: var(--orange);
+    border-radius: inherit;
+    transition: .5s all ease;
+    z-index: -1;
+}
+
+.container-cron .actions .btn-circle:hover::after {
+    width: 100%;
+    color: var(--white);
+}
+
+.container-cron .actions .btn-circle.orange {
+    background-color: var(--orange);
+    color: var(--white);
 }

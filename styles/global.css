@@ -91,22 +91,10 @@ main .content {
 }
 
 
-/*BOTÃO*/
-
-.btn-circle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5rem;
-    background-color: var(--orange);
-    color: var(--white);
-    border-radius: 50%;
-}
-
-.btn-circle.large {
-    padding: 5rem 7rem;
+/* .btn-circle.large {
+    padding: 2rem 7.5rem;
     border-radius: 6rem;
-}
+} */
 
 
 /*MEDIA QUERIES*/
