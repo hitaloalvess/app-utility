@@ -8,8 +8,8 @@
 }
 
 :root {
-    --color-btn-number: #272727;
-    --color-btn-funcionalidade: #2A2A2A;
+    --black-medium: #272727;
+    --black-light: #2A2A2A;
     --orange: #F55E15;
     --white: #FFF;
     --black: rgb(0, 0, 0);
@@ -39,11 +39,11 @@ body {
 
 main {
     position: relative;
-    width: min(85vw, 90%);
-    height: 90vh;
+    width: 100%;
+    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
-    border-radius: 24px;
     background-color: var(--orange);
 }
 
@@ -88,7 +88,8 @@ main .content {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 24px;
+    border: .1rem solid var(--black-light);
+    /* border-radius: 24px; */
     background-color: var(--background-content);
     font-family: 'Roboto', sans-serif;
 }

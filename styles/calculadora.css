@@ -9,7 +9,8 @@
 .container-calc .view-calc {
     height: 40%;
     padding: 2rem;
-    border-radius: 24px 24px 0 0;
+    border: .1rem solid var(--black-medium);
+    /* border-radius: 24px 24px 0 0; */
     color: var(--white);
 }
 
@@ -56,38 +57,38 @@
 
 .container-calc .botoes button {
     padding: 2rem 1.5rem;
-    font-size: clamp(1.5rem, 2vw, 2rem);
+    font-size: clamp(1.5rem, 2vw, 3rem);
     font-weight: bold;
 }
 
 .container-calc .botoes button[data-funcionalidade],
 .container-calc .botoes button[data-operacao] {
-    background-color: var(--color-btn-funcionalidade);
+    background-color: var(--black-light);
     color: var(--orange);
-    border-color: var(--color-btn-funcionalidade);
+    border-color: var(--black-light);
 }
 
 .container-calc .botoes button[data-number],
 .container-calc .botoes button[data-funcionalidade='apagar'] {
-    background-color: var(--color-btn-number);
+    background-color: var(--black-medium);
     color: var(--white);
-    border-color: var(--color-btn-number);
+    border-color: var(--black-medium);
 }
 
 .container-calc .botoes button[data-number="."] {
-    border-radius: 0 0 0 24px;
+    /* border-radius: 0 0 0 24px; */
 }
 
 .container-calc .botoes button[data-operacao="resultado"] {
     grid-row: 4 / 6;
     grid-column: 4 / 5;
-    border-radius: 0 0 24px 0;
+    /* border-radius: 0 0 24px 0; */
     background-color: var(--orange);
     color: var(--white);
 }
 
 .container-calc .botoes button:hover {
-    border: 1px solid var(--color-btn-number);
+    border: 1px solid var(--black-medium);
     box-shadow: 0px 5px 10px 0px rgb(24, 24, 24);
     z-index: 99;
     transition: .4s ease;

@@ -8,6 +8,7 @@
     font-size: clamp(2rem, 10vw, 13rem);
     font-weight: 500;
     line-height: 0;
+    perspective: 100rem;
     background-color: blanchedalmond;
 }
 
@@ -20,7 +21,6 @@
     width: 100%;
     height: 100%;
     z-index: 0;
-    background-color: chartreuse;
 }
 
 .flip-clock .digit::before,
@@ -30,23 +30,63 @@
     height: 50%;
     display: flex;
     justify-content: center;
+    overflow: hidden;
 }
 
 .flip-clock .digit::before {
-    content: '12';
+    content: attr(data-digit-before);
     bottom: 0;
+    align-items: flex-start;
 }
 
 .flip-clock .digit::after {
-    content: '11';
+    content: attr(data-digit-after);
     top: 0;
     align-items: flex-end;
-    background-color: coral;
 }
 
 .flip-clock .digit .card {
+    position: relative;
     width: 100%;
     height: 50%;
+    transform-origin: bottom;
+    transform: rotateX(0);
+    transform-style: preserve-3d;
+    z-index: 1;
+    transition: transform .7s ease-in-out;
+}
+
+.flip-clock .digit .card.flipped {
+    transform: rotateX(-180deg);
+}
+
+.flip-clock .digit .card .card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    backface-visibility: hidden;
+}
+
+.flip-clock .digit .card .card-face-front {
+    align-items: flex-end;
+}
+
+.flip-clock .digit .card .card-face-back {
+    align-items: flex-start;
+    transform: rotateX(-180deg);
+}
+
+.digit::after,
+.card-face.card-face-front {
+    background-color: var(--orange);
+}
+
+.digit::before,
+.card-face.card-face-back {
+    background-color: var(--orange);
 }
 
 .flip-clock .digit .divider {
@@ -57,6 +97,14 @@
     justify-content: space-between;
     align-items: center;
     z-index: 99;
+}
+
+.flip-clock,
+.flip-clock .digit::after,
+.flip-clock .digit::before,
+.flip-clock .digit .card-face.card-face-front,
+.flip-clock .digit .card-face.card-face-back {
+    border-radius: .8rem;
 }
 
 .flip-clock .digit .divider .divider-line {
