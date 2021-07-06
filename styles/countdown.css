@@ -9,7 +9,6 @@
     font-weight: 500;
     line-height: 0;
     perspective: 100rem;
-    background-color: blanchedalmond;
 }
 
 .container-countdown .flip-clock:not(div:nth-child(3)) {
@@ -100,23 +99,19 @@
 }
 
 .flip-clock,
+.flip-clock .digit .card,
 .flip-clock .digit::after,
+.flip-clock .digit .card-face.card-face-front {
+    border-radius: .8rem .8rem 0 0;
+}
+
 .flip-clock .digit::before,
-.flip-clock .digit .card-face.card-face-front,
 .flip-clock .digit .card-face.card-face-back {
-    border-radius: .8rem;
+    border-radius: 0 0 .8rem .8rem;
 }
 
 .flip-clock .digit .divider .divider-line {
     width: 100%;
     height: 100%;
     background-color: var(--black);
-}
-
-.digit .divider div:not(.divider-line) {
-    width: 5%;
-    min-width: .35rem;
-    height: clamp(.5rem, 2vw, 2rem);
-    background: linear-gradient(to bottom, var(--black), #859398 90%);
-    /* border-radius: .8rem; */
 }
