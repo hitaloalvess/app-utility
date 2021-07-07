@@ -1,5 +1,5 @@
 import { createCoutdown } from "./coutdown.js"
-import createEventListenerCalculadora from "./calculadora/event-listener-calculadora.js"
+import createCalculadora from "./calculadora.js"
 import { createCronometro } from "./cronometro.js"
 
 export const renderElement = (document, typed) => {
@@ -9,22 +9,22 @@ export const renderElement = (document, typed) => {
         calculadora() {
             return `<div class="container-calc">
             <section class="view-calc">
-                <div class="calculos-realizados">50+50</div>
+                <div class="calculos-realizados"></div>
                 <span class="resultado">
-                    <p class="operacao-atual">+</p>
-                    <p class="valor">100</p>
+                    <p class="operacao-atual"></p>
+                    <p class="valor"></p>
                 </span>
             </section>
             <section class="botoes">
                 <button data-funcionalidade='on'>On</button>
-                <button data-funcionalidade="off" hidden>Off</button>
-                <button data-funcionalidade="limpar">C</button>
+                <button data-funcionalidade="off" class="disable">Off</button>
+                <button data-funcionalidade="clean">C</button>
                 <button data-operacao="divisao">/</button>
                 <button data-operacao="multiplicacao">X</button>
                 <button data-number="7">7</button>
                 <button data-number="8">8</button>
                 <button data-number="9">9</button>
-                <button data-operacao="substracao">-</button>
+                <button data-operacao="subtracao">-</button>
                 <button data-number="4">4</button>
                 <button data-number="5">5</button>
                 <button data-number="6">6</button>
@@ -35,7 +35,7 @@ export const renderElement = (document, typed) => {
                 <button data-operacao="resultado">=</button>
                 <button data-number=".">.</button>
                 <button data-number="0">0</button>
-                <button data-funcionalidade="apagar"><i class="fas fa-backspace"></i></button>
+                <button data-funcionalidade="backspace"><i class="fas fa-backspace"></i></button>
             </section>
         </div>`
         },
@@ -100,7 +100,7 @@ export const renderElement = (document, typed) => {
 
     const features = {
         calculadora() {
-            return createEventListenerCalculadora(document)
+            return createCalculadora(document)
         },
         cronometro() {
             return createCronometro(document)

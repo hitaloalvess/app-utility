@@ -55,6 +55,10 @@
     overflow: hidden;
 }
 
+.container-calc .botoes button.disable {
+    display: none;
+}
+
 .container-calc .botoes button {
     padding: 2rem 1.5rem;
     font-size: clamp(1.5rem, 2vw, 3rem);
