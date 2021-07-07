@@ -75,10 +75,6 @@
     border-color: var(--black-medium);
 }
 
-.container-calc .botoes button[data-number="."] {
-    /* border-radius: 0 0 0 24px; */
-}
-
 .container-calc .botoes button[data-operacao="resultado"] {
     grid-row: 4 / 6;
     grid-column: 4 / 5;

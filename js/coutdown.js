@@ -1,4 +1,5 @@
-(function() {
+export const createCoutdown = () => {
+
     const elements = {
         s: initElements('s'),
         m: initElements('m'),
@@ -83,5 +84,4 @@
 
         setTimeout(run, 1000)
     })()
-
-})()
+}

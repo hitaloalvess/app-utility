@@ -1,6 +1,9 @@
+import { createCoutdown } from "./coutdown.js"
+import createEventListenerCalculadora from "./calculadora/event-listener-calculadora.js"
+import { createCronometro } from "./cronometro.js"
+
 export const renderElement = (document, typed) => {
     const content = document.querySelector(`main .content`)
-    const body = document.querySelector(`body`)
 
     const elements = {
         calculadora() {
@@ -95,8 +98,23 @@ export const renderElement = (document, typed) => {
         }
     }
 
+    const features = {
+        calculadora() {
+            return createEventListenerCalculadora(document)
+        },
+        cronometro() {
+            return createCronometro(document)
+        },
+        countdown() {
+            return createCoutdown(document)
+        }
+    }
+
     const element = elements[typed]
+    const startFeatures = features[typed]
 
-    content.innerHTML = element()
-
+    if (element && startFeatures) {
+        content.innerHTML = element()
+        startFeatures()
+    }
 }
