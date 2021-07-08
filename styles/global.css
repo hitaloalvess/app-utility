@@ -8,14 +8,15 @@
 }
 
 :root {
+    --black: rgb(0, 0, 0);
     --black-medium: #272727;
     --black-light: #2A2A2A;
-    --orange: #F55E15;
-    --white: #FFF;
-    --black: rgb(0, 0, 0);
     --black-transparent: rgba(0, 0, 0, 0.1);
-    --grey: #313131;
     --white: #FAFAFA;
+    --orange: #F55E15;
+    --red: rgba(232, 63, 91, 1);
+    --grey: #3f3d3d;
+    --grey-light: rgba(229, 234, 241, 1);
     --backgroud: rgb(224, 218, 218);
     --background-content: #222;
 }
@@ -32,6 +33,24 @@ body {
     justify-content: center;
     align-items: center;
     background-color: var(--backgroud);
+}
+
+
+/*GENERALIST CLASS*/
+
+.btn-circle {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: .1rem solid var(--orange);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: var(--orange);
+    color: var(--black);
 }
 
 
@@ -99,7 +118,6 @@ main .content {
     align-items: center;
     width: 100%;
     height: 100%;
-    border-radius: 24px;
 }
 
 

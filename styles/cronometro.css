@@ -45,16 +45,9 @@
 }
 
 .container-cron .actions .btn-circle {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: clamp(3.5rem, 6vw, 6rem);
     height: clamp(3.5rem, 6vw, 6rem);
-    border: .1rem solid var(--orange);
-    border-radius: 50%;
     font-size: clamp(1rem, 1.5vw, 1.5rem);
-    cursor: pointer;
     color: var(--white);
     overflow: hidden;
     z-index: 99;
