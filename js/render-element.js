@@ -9,10 +9,9 @@ export const renderElement = (document, typed) => {
         calculadora() {
             return `<div class="container-calc">
             <section class="view-calc">
-                <div class="calculos-realizados"></div>
                 <span class="resultado">
                     <p class="operacao-atual"></p>
-                    <p class="valor"></p>
+                    <div class="valor"></div>
                 </span>
             </section>
             <section class="botoes">
@@ -20,7 +19,7 @@ export const renderElement = (document, typed) => {
                 <button data-funcionalidade="off" class="disable">Off</button>
                 <button data-funcionalidade="clean">C</button>
                 <button data-operacao="divisao">/</button>
-                <button data-operacao="multiplicacao">X</button>
+                <button data-operacao="multiplicacao">x</button>
                 <button data-number="7">7</button>
                 <button data-number="8">8</button>
                 <button data-number="9">9</button>

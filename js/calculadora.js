@@ -1,6 +1,5 @@
 export default function createCalculadora(document) {
 
-    const calculationsPerformed = document.querySelector(`.view-calc .calculos-realizados`)
     const currentOperation = document.querySelector(`.view-calc .resultado .operacao-atual`)
     const display = document.querySelector(`.view-calc .resultado .valor`)
     const btnNumbers = [...document.querySelectorAll(`[data-number]`)]
@@ -9,60 +8,12 @@ export default function createCalculadora(document) {
 
 
     const storage = {
-        onOff: 'on',
+        onOff: 'off',
         num1: null,
         num2: null,
         operacao: null,
         enableNewNumber: true
     }
-
-    function assignResult(result) {
-        display.textContent = result
-        storage.num1 = result
-        storage.num2 = null
-    }
-
-    function calculation() {
-        const operations = {
-            soma(num1, num2) {
-                return parseInt(num1) + parseInt(num2)
-            },
-            subtracao(num1, num2) {
-                return parseInt(num1) - parseInt(num2)
-            },
-            multiplicacao(num1, num2) {
-                return parseInt(num1) * parseInt(num2)
-            },
-            divisao(num1, num2) {
-                return parseInt(num1) / parseInt(num2)
-            }
-        }
-
-        const operation = operations[storage.operacao]
-        const result = operation(storage.num1, storage.num2)
-
-        assignResult(result)
-    }
-
-    function performCalculation() {
-        if ((storage.num1 || storage.num1 === 0) && (storage.num2 || storage.num2 === 0)) {
-            calculation()
-        }
-    }
-
-    function storeNumber() {
-        if (storage.onOff === 'off') return
-
-        if (storage.enableNewNumber) return
-
-        if (storage.num1 === null) {
-            storage.num1 = display.textContent
-        } else {
-            storage.num2 = display.textContent
-            performCalculation()
-        }
-    }
-
 
     btnNumbers.forEach(button => button.addEventListener('click', handleNumberButtons))
 
@@ -73,11 +24,10 @@ export default function createCalculadora(document) {
 
         if (storage.enableNewNumber) {
             display.textContent = number
-            storage.enableNewNumber = false
+            updateEnableNewNumber(false)
         } else {
             display.textContent += number
         }
-
 
     }
 
@@ -97,9 +47,8 @@ export default function createCalculadora(document) {
                 storage.num1 = null
                 storage.num2 = null
                 storage.operacao = null
-                storage.enableNewNumber = true
+                updateEnableNewNumber(true)
 
-                calculationsPerformed.textContent = ''
                 currentOperation.textContent = ''
                 display.textContent = valueInput
             },
@@ -160,19 +109,70 @@ export default function createCalculadora(document) {
         if (storage.onOff === 'off') return
 
         const operationName = event.target.dataset.operacao
+        const simbolOperation = event.target.innerHTML
+        const numberTyped = display.textContent
 
-        if (operationName !== 'resultado') {
-            storage.operacao = operationName
-        }
-
-        addTypedNumberOperatio(display.textContent, event.target.innerHTML)
-        storeNumber(display.textContent)
-        currentOperation.textContent = event.target.innerHTML
-        storage.enableNewNumber = true
+        storeOperation(operationName)
+        addCurrentOperation(simbolOperation)
+        storeNumber(numberTyped)
+        updateEnableNewNumber(true)
     }
 
-    function addTypedNumberOperatio(number, operation) {
-        operation = operation === '=' ? '' : operation
-        calculationsPerformed.textContent += `${number} ${operation} `
+    function addCurrentOperation(operation) {
+        currentOperation.textContent = operation
+    }
+
+    function storeOperation(name) {
+        if (name == 'resultado') return
+        if (storage.operacao) return
+
+        storage.operacao = name
+    }
+
+    function storeNumber() {
+        if (storage.onOff === 'off') return
+
+        if (storage.enableNewNumber) return
+
+        if (storage.num1 === null) {
+            storage.num1 = display.textContent
+        } else {
+            storage.num2 = display.textContent
+            calculation()
+        }
+    }
+
+    function calculation() {
+        const operations = {
+            soma(num1, num2) {
+                return parseInt(num1) + parseInt(num2)
+            },
+            subtracao(num1, num2) {
+                return parseInt(num1) - parseInt(num2)
+            },
+            multiplicacao(num1, num2) {
+                return parseInt(num1) * parseInt(num2)
+            },
+            divisao(num1, num2) {
+                return parseInt(num1) / parseInt(num2)
+            }
+        }
+
+        const operation = operations[storage.operacao]
+        const result = operation(storage.num1, storage.num2)
+
+        assignResult(result)
+    }
+
+    function assignResult(result) {
+        display.textContent = result
+        currentOperation.textContent = '='
+        storage.num1 = result
+        storage.num2 = null
+        storage.operacao = null
+    }
+
+    function updateEnableNewNumber(bool) {
+        storage.enableNewNumber = bool
     }
 }
