@@ -25,6 +25,10 @@
     animation: loading 2s linear infinite;
 }
 
+.container-cron .timer.animando.paused::after {
+    animation-play-state: paused;
+}
+
 .container-cron .timer p {
     font-size: clamp(3rem, 9vw, 7rem);
 }
@@ -36,8 +40,8 @@
     width: 100%;
 }
 
-.container-cron .actions .play {
-    margin: 0 5%;
+.container-cron .actions div[data-type="play"] {
+    margin: 0 3%;
 }
 
 .container-cron .actions .btn-circle {
@@ -45,8 +49,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: clamp(3.5rem, 6vw, 8rem);
-    height: clamp(3.5rem, 6vw, 8rem);
+    width: clamp(3.5rem, 6vw, 6rem);
+    height: clamp(3.5rem, 6vw, 6rem);
     border: .1rem solid var(--orange);
     border-radius: 50%;
     font-size: clamp(1rem, 1.5vw, 1.5rem);

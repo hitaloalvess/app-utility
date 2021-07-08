@@ -44,13 +44,13 @@ export const renderElement = (document, typed) => {
                 <p>00:00:00</p>
             </div>
             <div class="actions">
-                <div class="stop btn-circle">
+                <div data-type="stop" class="cron-btn stop btn-circle">
                     <i class="fas fa-stop"></i>
                 </div>
-                <div class="play btn-circle orange">
+                <div data-type="play" class="cron-btn play btn-circle orange">
                     <i class="fas fa-play"></i>
                 </div>
-                <div class="pause btn-circle">
+                <div data-type="pause" class="cron-btn pause btn-circle">
                     <i class="fas fa-pause"></i>
                 </div>
             </div>
