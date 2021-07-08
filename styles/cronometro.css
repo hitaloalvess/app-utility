@@ -44,36 +44,6 @@
     margin: 0 3%;
 }
 
-.container-cron .actions .btn-circle {
-    width: clamp(3.5rem, 6vw, 6rem);
-    height: clamp(3.5rem, 6vw, 6rem);
-    font-size: clamp(1rem, 1.5vw, 1.5rem);
-    color: var(--white);
-    overflow: hidden;
-    z-index: 99;
-}
-
-.container-cron .actions .btn-circle::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background-color: var(--orange);
-    border-radius: inherit;
-    transition: .5s all ease;
-    z-index: -1;
-}
-
-.container-cron .actions .btn-circle:hover::after {
-    width: 100%;
-}
-
-.container-cron .actions .btn-circle:hover {
-    color: var(--white);
-}
-
 .container-cron .actions .btn-circle.orange {
     background-color: var(--orange);
     color: var(--white);

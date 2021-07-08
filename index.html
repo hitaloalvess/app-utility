@@ -36,7 +36,7 @@
         </nav>
         <div class="content">
             <div class="container container-countdown">
-                <h3>TITULO</h3>
+                <h3>Aqui irá conter um título</h3>
                 <!--FLIP CLOCK-->
                 <div class="flip-group">
                     <div class="flip-clock flip-clock-h">
@@ -78,10 +78,52 @@
 
                 <!-- ACTIONS -->
                 <div class="actions">
-                    <button class="btn-circle"><i class="fas fa-edit"></i></button>
-                    <button class="btn-circle"><i class="fas fa-stop"></i></button>
-                    <button class="btn-circle"><i class="fas fa-pause"></i></button>
-                    <button class="btn-circle"><i class="fas fa-play"></i></button>
+                    <div class="action">
+                        <div class="btn-circle"><i class="fas fa-plus"></i></div>
+                        <p>Adicionar</p>
+                    </div>
+                    <div class="action disabled">
+                        <div class="btn-circle"><i class="fas fa-edit"></i></div>
+                        <p>Editar</p>
+                    </div>
+                    <div class="action disabled">
+                        <div class="btn-circle"><i class="fas fa-stop"></i></div>
+                        <p>Stop</p>
+                    </div>
+                    <div class="action disabled">
+                        <div class="btn-circle"><i class="fas fa-pause"></i></div>
+                        <p>Pause</p>
+                    </div>
+                    <div class="action disabled">
+                        <div class="btn-circle"><i class="fas fa-play"></i></div>
+                        <p>Play</p>
+                    </div>
+                </div>
+
+                <div class="modal">
+                    <div class="container">
+                        <div class="title">
+                            <h4>Editar o contador</h4>
+                            <div class="close"><i class="fas fa-times"></i></div>
+                        </div>
+                        <div class="time-option">
+                            <div class="option-hour">
+                                <div class="option-button left"><i class="fas fa-chevron-left"></i></div>
+                                <div class="option-time">00</div>
+                                <div class="option-button right"><i class="fas fa-chevron-right"></i></div>
+                            </div>
+                            <div class="option-minutes">
+                                <div class="option-button left"><i class="fas fa-chevron-left"></i></div>
+                                <div class="option-time">00</div>
+                                <div class="option-button right"><i class="fas fa-chevron-right"></i></div>
+                            </div>
+                            <div class="option-seconds">
+                                <div class="option-button left"><i class="fas fa-chevron-left"></i></div>
+                                <div class="option-time">00</div>
+                                <div class="option-button right"><i class="fas fa-chevron-right"></i></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
