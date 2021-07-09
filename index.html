@@ -102,31 +102,59 @@
 
                 <div class="modal">
                     <div class="container">
-                        <div class="title">
-                            <h4>Editar o contador</h4>
+                        <div class="modal-header">
+                            <h4>Editar o temporizador</h4>
                             <div class="close"><i class="fas fa-times"></i></div>
                         </div>
-                        <div class="time-option">
-                            <div class="option-hour">
-                                <div class="option-button left"><i class="fas fa-chevron-left"></i></div>
-                                <div class="option-time">00</div>
-                                <div class="option-button right"><i class="fas fa-chevron-right"></i></div>
-                            </div>
-                            <div class="option-minutes">
-                                <div class="option-button left"><i class="fas fa-chevron-left"></i></div>
-                                <div class="option-time">00</div>
-                                <div class="option-button right"><i class="fas fa-chevron-right"></i></div>
-                            </div>
-                            <div class="option-seconds">
-                                <div class="option-button left"><i class="fas fa-chevron-left"></i></div>
-                                <div class="option-time">00</div>
-                                <div class="option-button right"><i class="fas fa-chevron-right"></i></div>
-                            </div>
+                        <div class="modal-content">
+                            <form id="formulario">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label for="hours">Horas</label>
+                                        <select id="hours">
+                                            <option value="0">00</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="minutes">Minutos</label>
+                                        <select id="minutes">
+                                            <option value="0">00</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="seconds">Horas</label>
+                                        <select id="seconds">
+                                            <option value="0">00</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label for="som">Som</label>
+                                        <select id="som">
+                                            <option value="">Selecione</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label for="title">Título</label>
+                                        <input type="text" id="title">
+                                    </div>
+                                </div>
+
+                                <div class="form-group footer">
+                                    <input type="button" value="Cancelar">
+                                    <input type="submit" value="Iniciar">
+                                </div>
+
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
 
     </main>
@@ -136,3 +164,30 @@
 </body>
 
 </html>
+
+
+<!-- <div class="time-option">
+    <div class="option hours">
+        <p>Horas</p>
+        <div class="button-group">
+            <div class="button left"><i class="fas fa-chevron-left"></i></div>
+            <div class="contador">00</div>
+            <div class="button right"><i class="fas fa-chevron-right"></i></div>
+        </div>
+    </div>
+    <div class="option minutes">
+        <p>Minutos</p>
+        <div class="button-group">
+            <div class="button left"><i class="fas fa-chevron-left"></i></div>
+            <div class="contador">00</div>
+            <div class="button right"><i class="fas fa-chevron-right"></i></div>
+        </div>
+    </div>
+    <div class="option seconds">
+        <p>Segundos</p>
+        <div class="button-group">
+            <div class="button left"><i class="fas fa-chevron-left"></i></div>
+            <div class="contador">00</div>
+            <div class="button right"><i class="fas fa-chevron-right"></i></div>
+        </div>
+    </div> -->
