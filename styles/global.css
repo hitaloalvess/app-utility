@@ -9,13 +9,13 @@
 
 :root {
     --black: rgb(0, 0, 0);
-    --black-medium: #272727;
-    --black-light: #2A2A2A;
+    --black-medium: #1A1A1A;
+    --black-light: #282828;
     --black-transparent: rgba(0, 0, 0, 0.1);
     --white: #FAFAFA;
     --orange: #F55E15;
     --red: rgba(232, 63, 91, 1);
-    --grey: #3f3d3d;
+    --grey: #E5EAF1;
     --grey-light: rgb(73, 73, 73);
     --backgroud: rgb(224, 218, 218);
     --background-content: #222;

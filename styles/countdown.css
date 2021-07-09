@@ -183,6 +183,11 @@
 
 /*MODAL*/
 
+.container-countdown .modal.active {
+    visibility: visible;
+    opacity: 1;
+}
+
 .container-countdown .modal {
     display: flex;
     justify-content: center;
@@ -195,12 +200,14 @@
     color: var(--white);
     background-color: rgba(0, 0, 0, .5);
     z-index: 100;
+    visibility: hidden;
+    opacity: 0;
 }
 
 .container-countdown .modal .container {
-    width: min(50rem, 90%);
+    width: min(40rem, 90%);
     height: auto;
-    background-color: var(--background-content);
+    background-color: var(--black-light);
 }
 
 .container-countdown .modal .container .modal-header {
@@ -214,46 +221,110 @@
     background-color: var(--orange);
 }
 
-
-/* .container-countdown .modal .container .time-option {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 1.5rem 0;
-}
-
-.container-countdown .modal .container .time-option .option {
-    display: flex;
-    flex-direction: column;
-    text-align: start;
-    margin: 0 1rem;
-}
-
-.container-countdown .modal .container .time-option p {
-    align-self: flex-start;
-    margin-bottom: .8rem;
-}
-
-.modal .container .time-option .option .button-group {
-    padding: .3rem;
-    display: flex;
-    justify-content: space-between;
-    background-color: var(--grey-light);
-}
-
-.button-group .button,
-.button-group .contador {
+.container-countdown .modal .container .modal-content {
+    width: 100%;
+    height: 100%;
     padding: 1.5rem;
 }
 
-.button-group .contador {
-    color: var(--black);
-    font-weight: 500;
-    background-color: var(--orange);
+form .row {
+    display: flex;
 }
 
-.button-group .button {
+form .row:not(:last-child) {
+    margin-bottom: 2rem;
+}
+
+form .row .form-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+form .row .form-group+.form-group:not(:last-child) {
+    margin: 0 3%;
+}
+
+.form-group input[type="text"],
+.form-group select {
+    padding: 1.2rem;
+    font-size: clamp(1.4rem, 2vw, 2rem);
+    color: var(--white);
+    border: .1rem solid transparent;
+    border-radius: .4rem;
+    outline: none;
+    background-color: var(--black-medium);
+    transition: border-color .2s ease-in;
+}
+
+.form-group input[type="text"]:focus,
+.form-group select:focus {
+    border-color: var(--orange);
+}
+
+.form-group select option:nth-child(2n) {
+    background-color: var(--black-light);
+}
+
+.form-group input[type="text"] {
+    font-size: clamp(1.4rem, 2vw, 2rem);
+    background-color: var(--black-medium);
+}
+
+.form-group select,
+.button,
+.footer input {
     cursor: pointer;
+}
+
+form .row .form-group label {
+    margin-bottom: .8rem;
+}
+
+form .row .form-group .button-group {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    background-color: var(--orange);
+    border: 0 .1rem solid transparent;
+    border-radius: .4rem;
+}
+
+.form-group .button-group .button {
+    margin: 0 auto;
+    color: var(--white);
+}
+
+form .row .form-group .button-group input {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    text-align: center;
+}
+
+form .row .form-group.footer {
+    flex-direction: row;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+form .footer input {
+    padding: 1rem 2rem;
+    font-weight: 500;
+    border-radius: .4rem;
+    margin: 3% 0;
     color: var(--black);
-} */
+    transition: filter .2s ease-in-out;
+}
+
+form .footer input:hover {
+    filter: brightness(1.2);
+}
+
+form .footer input:nth-child(1) {
+    background-color: var(--grey);
+}
+
+form .footer input:nth-child(2) {
+    margin-left: 3%;
+    background-color: var(--orange);
+}
