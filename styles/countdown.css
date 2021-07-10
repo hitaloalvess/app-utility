@@ -271,6 +271,7 @@ form .row .form-group+.form-group:not(:last-child) {
     background-color: var(--black-medium);
 }
 
+.modal .close,
 .form-group select,
 .button,
 .footer input {
