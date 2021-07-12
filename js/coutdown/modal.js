@@ -48,15 +48,15 @@ export default function Modal() {
     function executeSubmit(event) {
         event.preventDefault()
 
-        const hours = valueInputConvertNumber('hours')
-        const minutes = valueInputConvertNumber('minutes')
-        const seconds = valueInputConvertNumber('seconds')
+        const h = valueInputConvertNumber('hours')
+        const m = valueInputConvertNumber('minutes')
+        const s = valueInputConvertNumber('seconds')
         const title = valueInputText('title')
 
         const command = {
-            seconds,
-            minutes,
-            hours,
+            s,
+            m,
+            h,
             title
         }
 

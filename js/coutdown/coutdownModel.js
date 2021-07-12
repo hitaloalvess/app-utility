@@ -11,8 +11,15 @@ export default function Countdown() {
     modal.subscribe(activeGroupActions)
 
     const state = {
-        valueTemporizador: null
+        valueTemporizador: null,
+        valueCoutdownInitial: {
+            s: 0,
+            m: 0,
+            h: 0,
+            title: ''
+        }
     }
+
     const elements = {
         s: initElements('s'),
         m: initElements('m'),
@@ -47,9 +54,12 @@ export default function Countdown() {
             },
             pause() {
                 clearInterval(state.valueTemporizador)
+                state.valueTemporizador = null
             },
             stop() {
-
+                if (!state.valueTemporizador) {
+                    fillCountdown(state.valueCoutdownInitial)
+                }
             },
             editar() {
                 modal.open()
@@ -62,18 +72,20 @@ export default function Countdown() {
     }
 
     function fillCountdown(command) {
+        console.log('entrei')
         const time = {
-            s: command.seconds,
-            m: command.minutes,
-            h: command.hours
+            s: command.s,
+            m: command.m,
+            h: command.h
         }
 
+        saveInitialTime(command)
         inputTitle.textContent = command.title
 
         for (const chave of Object.keys(elements)) {
 
             const currentDate = time[chave]
-            const nextCurrentDate = currentDate - 1
+            const nextCurrentDate = currentDate - 1 ? 59 : currentDate - 1
             const element = elements[chave]
 
             if (element && element.digit) {
@@ -90,6 +102,12 @@ export default function Countdown() {
         groupActions.classList.remove('disabled')
     }
 
+    function saveInitialTime(objTime) {
+        for (const chave of Object.keys(objTime)) {
+            state.valueCoutdownInitial[chave] = objTime[chave]
+        }
+    }
+
 
     function run() {
 
@@ -100,24 +118,28 @@ export default function Countdown() {
         }
 
         const nextCurrentDate = {
-            s: currentDate.s - 1,
-            m: currentDate.m - 1,
-            h: currentDate.h - 1
+            s: currentDate.s - 1 < 0 ? 59 : currentDate.s - 1,
+            m: currentDate.m - 1 < 0 ? 59 : currentDate.m - 1,
+            h: currentDate.h - 1 < 0 ? 59 : currentDate.h - 1
         }
 
         currentDate.s -= 1
-        nextCurrentDate.s = nextCurrentDate.s <= 0 ? 59 : nextCurrentDate.s - 1
+        nextCurrentDate.s = nextCurrentDate.s - 1 < 0 ? 59 : nextCurrentDate.s - 1
 
         if (currentDate.s < 0) {
 
             if (currentDate.m >= 0) {
                 currentDate.m -= 1
-                nextCurrentDate.m -= 1
+                nextCurrentDate.m = nextCurrentDate.m <= 0 ? 59 : nextCurrentDate.m - 1
             }
             currentDate.s = 59
             nextCurrentDate.s = currentDate.s - 1
 
+
             if (currentDate.m <= 0) {
+
+                currentDate.m = 59
+                nextCurrentDate.m = currentDate.m - 1
 
                 if (currentDate.h > 0) {
                     currentDate.h -= 1
@@ -161,6 +183,7 @@ export default function Countdown() {
 
         if (currentDate.s <= 0 && currentDate.m <= 0 && currentDate.h <= 0) {
             clearTimeout(state.valueTemporizador)
+            state.valueTemporizador = null
             return
         } else {
             state.valueTemporizador = setTimeout(run, 1000)
