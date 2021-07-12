@@ -3,11 +3,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: clamp(20rem, 55vw, 38rem);
-    height: clamp(20rem, 55vw, 38rem);
+    width: clamp(20rem, 50vw, 35rem);
+    height: clamp(20rem, 50vw, 35rem);
     border-radius: 50%;
     border: .7rem solid var(--black-transparent);
-    margin-bottom: 4%;
+    margin-bottom: 2%;
     color: var(--white);
 }
 

@@ -9,6 +9,12 @@
 
 </p>
 
+
+<p align="center">
+ <img src=".github/utility-movie.gif" alt="Application demo" />
+</p>
+
+
 ## 🚀 Technologies
 
 This project was developed with the following technologies:
@@ -25,3 +31,6 @@ Utility is an application that brings with it a resource pack containing the sto
 
 
 This project was created with the objective of improving concepts and techniques related to Javascript, HTML and CSS.
+
+---
+Made with ♥ by Hitalo 🚀
