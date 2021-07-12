@@ -2,8 +2,17 @@ import Modal from "./modal.js"
 
 export default function Countdown() {
 
-    const modal = Modal()
+    const inputTitle = document.querySelector(`.container-countdown h3`)
+    const btnAdicionar = document.querySelector(`[data-type="adicionar"]`)
+    const groupActions = document.querySelector(`.container-countdown .actions .group-actions`)
 
+    const modal = Modal()
+    modal.subscribe(fillCountdown)
+    modal.subscribe(activeGroupActions)
+
+    const state = {
+        valueTemporizador: null
+    }
     const elements = {
         s: initElements('s'),
         m: initElements('m'),
@@ -34,16 +43,16 @@ export default function Countdown() {
                 modal.open()
             },
             play() {
-
+                run()
             },
             pause() {
-
+                clearInterval(state.valueTemporizador)
             },
             stop() {
 
             },
             editar() {
-
+                modal.open()
             }
         }
 
@@ -52,68 +61,120 @@ export default function Countdown() {
         return functionalitie
     }
 
+    function fillCountdown(command) {
+        const time = {
+            s: command.seconds,
+            m: command.minutes,
+            h: command.hours
+        }
+
+        inputTitle.textContent = command.title
+
+        for (const chave of Object.keys(elements)) {
+
+            const currentDate = time[chave]
+            const nextCurrentDate = currentDate - 1
+            const element = elements[chave]
+
+            if (element && element.digit) {
+                element.digit.dataset.digitBefore = timeFormat(currentDate)
+                element.cardFacesFront.textContent = element.digit.dataset.digitBefore
+                element.digit.dataset.digitAfter = timeFormat(nextCurrentDate)
+                element.cardFacesBack.textContent = element.digit.dataset.digitAfter
+            }
+        }
+    }
+
+    function activeGroupActions(command) {
+        btnAdicionar.classList.add('disabled')
+        groupActions.classList.remove('disabled')
+    }
 
 
-    // (function run() {
-    //     const date = new Date
-    //     const now = {
-    //         s: date.getSeconds(),
-    //         m: date.getMinutes(),
-    //         h: date.getHours()
-    //     }
+    function run() {
 
-    //     now.s = now.s <= 9 ? `0${now.s}` : `${now.s}`
-    //     now.m = now.m <= 9 ? `0${now.m}` : `${now.m}`
-    //     now.h = now.h <= 9 ? `0${now.h}` : `${now.h}`
+        const currentDate = {
+            s: elements.s.digit.dataset.digitBefore,
+            m: elements.m.digit.dataset.digitBefore,
+            h: elements.h.digit.dataset.digitBefore
+        }
 
+        const nextCurrentDate = {
+            s: currentDate.s - 1,
+            m: currentDate.m - 1,
+            h: currentDate.h - 1
+        }
 
+        currentDate.s -= 1
+        nextCurrentDate.s = nextCurrentDate.s <= 0 ? 59 : nextCurrentDate.s - 1
 
-    //     for (const chave of Object.keys(elements)) {
+        if (currentDate.s < 0) {
 
-    //         const currentDate = now[chave]
-    //         let nextCurrentDate = parseInt(currentDate) + 1
-    //         nextCurrentDate = nextCurrentDate <= 9 ? `0${nextCurrentDate}` : `${nextCurrentDate}`
+            if (currentDate.m >= 0) {
+                currentDate.m -= 1
+                nextCurrentDate.m -= 1
+            }
+            currentDate.s = 59
+            nextCurrentDate.s = currentDate.s - 1
 
-    //         if (chave === 's' || chave === 'm') {
-    //             nextCurrentDate = nextCurrentDate <= 59 ? `${nextCurrentDate}` : `00`
-    //         }
-    //         if (chave === 'h') {
-    //             nextCurrentDate = nextCurrentDate <= 23 ? `${nextCurrentDate}` : `00`
-    //         }
+            if (currentDate.m <= 0) {
 
-    //         const element = elements[chave]
+                if (currentDate.h > 0) {
+                    currentDate.h -= 1
+                    nextCurrentDate.h -= 1
+                    if (nextCurrentDate.h < 0) nextCurrentDate.h = 0
+                }
+            }
+        }
 
-    //         if (element && element.digit) {
-    //             if (!element.digit.dataset.digitBefore) {
-    //                 element.digit.dataset.digitBefore = currentDate
-    //                 element.cardFacesFront.textContent = element.digit.dataset.digitBefore
-    //                 element.digit.dataset.digitAfter = nextCurrentDate
-    //                 element.cardFacesBack.textContent = element.digit.dataset.digitAfter
-    //             } else if (element.digit.dataset.digitBefore !== currentDate) {
-    //                 element.card.addEventListener('transitionend', () => {
-    //                     element.digit.dataset.digitBefore = currentDate
-    //                     element.cardFacesFront.textContent = element.digit.dataset.digitBefore
+        currentDate.s = timeFormat(currentDate.s)
+        nextCurrentDate.s = timeFormat(nextCurrentDate.s)
+        currentDate.m = timeFormat(currentDate.m)
+        nextCurrentDate.m = timeFormat(nextCurrentDate.m)
+        currentDate.h = timeFormat(currentDate.h)
+        nextCurrentDate.h = timeFormat(nextCurrentDate.h)
 
-    //                     const cardClone = element.card.cloneNode(true)
-    //                     cardClone.classList.remove('flipped')
-    //                     element.digit.replaceChild(cardClone, element.card)
-    //                     element.card = cardClone
-    //                     element.cardFaces = element.card.querySelectorAll('.card-face')
-    //                     element.cardFacesFront = element.cardFaces[0]
-    //                     element.cardFacesBack = element.cardFaces[1]
+        for (const chave of Object.keys(elements)) {
+            if (elements[chave].digit.dataset.digitBefore !== currentDate[chave]) {
 
-    //                     element.digit.dataset.digitAfter = nextCurrentDate
-    //                     element.cardFacesBack.textContent = element.digit.dataset.digitAfter
-    //                 }, { once: true })
-    //                 if (!element.card.classList.contains('flipped')) {
-    //                     element.card.classList.add('flipped')
-    //                 }
-    //             }
-    //         }
-    //     }
+                elements[chave].card.addEventListener('transitionend', () => {
+                    elements[chave].digit.dataset.digitBefore = currentDate[chave]
+                    elements[chave].cardFacesFront.textContent = elements[chave].digit.dataset.digitBefore
 
-    //     setTimeout(run, 1000)
-    // })()
+                    const cardClone = elements[chave].card.cloneNode(true)
+                    cardClone.classList.remove('flipped')
+                    elements[chave].digit.replaceChild(cardClone, elements[chave].card)
+                    elements[chave].card = cardClone
+                    elements[chave].cardFaces = elements[chave].card.querySelectorAll('.card-face')
+                    elements[chave].cardFacesFront = elements[chave].cardFaces[0]
+                    elements[chave].cardFacesBack = elements[chave].cardFaces[1]
+
+                    elements[chave].digit.dataset.digitAfter = nextCurrentDate[chave]
+                    elements[chave].cardFacesBack.textContent = elements[chave].digit.dataset.digitAfter
+
+                }, { once: true })
+                if (!elements[chave].card.classList.contains('flipped')) {
+                    elements[chave].card.classList.add('flipped')
+                }
+            }
+        }
+
+        if (currentDate.s <= 0 && currentDate.m <= 0 && currentDate.h <= 0) {
+            clearTimeout(state.valueTemporizador)
+            return
+        } else {
+            state.valueTemporizador = setTimeout(run, 1000)
+        }
+    }
+
+    function timeFormat(time) {
+        let lengthOfVariableTime = [...
+            `${time}`
+        ].length
+
+        time = time <= 9 && lengthOfVariableTime === 1 ? `0${time}` : `${time}`
+        return `${time}`
+    }
 
 
     return {

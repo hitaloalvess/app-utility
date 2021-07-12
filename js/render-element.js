@@ -59,7 +59,7 @@ export const renderElement = (document, typed) => {
         },
         countdown() {
             return ` <div class="container container-countdown">
-            <h3>Aqui irá conter um título</h3>
+            <h3></h3>
             <!--FLIP CLOCK-->
             <div class="flip-group">
                 <div class="flip-clock flip-clock-h">
@@ -105,21 +105,23 @@ export const renderElement = (document, typed) => {
                     <div data-type="adicionar" class="btn-circle"><i class="fas fa-plus"></i></div>
                     <p>Adicionar</p>
                 </div>
-                <div class="action disabled">
-                    <div data-type="editar" class="btn-circle"><i class="fas fa-edit"></i></div>
-                    <p>Editar</p>
-                </div>
-                <div class="action disabled">
-                    <div data-type="stop" class="btn-circle"><i class="fas fa-stop"></i></div>
-                    <p>Stop</p>
-                </div>
-                <div class="action disabled">
-                    <div data-type="pause" class="btn-circle"><i class="fas fa-pause"></i></div>
-                    <p>Pause</p>
-                </div>
-                <div class="action disabled">
-                    <div data-type="play" class="btn-circle"><i class="fas fa-play"></i></div>
-                    <p>Play</p>
+                <div class="group-actions disabled">
+                    <div class="action">
+                        <div data-type="editar" class="btn-circle"><i class="fas fa-edit"></i></div>
+                        <p>Editar</p>
+                    </div>
+                    <div class="action">
+                        <div data-type="stop" class="btn-circle"><i class="fas fa-stop"></i></div>
+                        <p>Stop</p>
+                    </div>
+                    <div class="action">
+                        <div data-type="pause" class="btn-circle"><i class="fas fa-pause"></i></div>
+                        <p>Pause</p>
+                    </div>
+                    <div class="action">
+                        <div data-type="play" class="btn-circle"><i class="fas fa-play"></i></div>
+                        <p>Play</p>
+                    </div>
                 </div>
             </div>
 
@@ -136,37 +138,22 @@ export const renderElement = (document, typed) => {
                                     <label for="hours">Horas</label>
 
                                     <div class="button-group">
-                                        <div class="button left"><i class="fas fa-chevron-left"></i></div>
-                                        <input type="text" class="contador" id="hours" value="00">
-                                        <div class="button right"><i class="fas fa-chevron-right"></i></div>
+                                        <input type="number" class="contador" id="hours" value="00">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="minutes">Minutos</label>
 
                                     <div class="button-group">
-                                        <div class="button left"><i class="fas fa-chevron-left"></i></div>
-                                        <input type="text" class="contador" id="minutes" value="00">
-                                        <div class="button right"><i class="fas fa-chevron-right"></i></div>
+                                        <input type="number" class="contador" id="minutes" value="00">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="seconds">Horas</label>
 
                                     <div class="button-group">
-                                        <div class="button left"><i class="fas fa-chevron-left"></i></div>
-                                        <input type="text" class="contador" id="seconds" value="00">
-                                        <div class="button right"><i class="fas fa-chevron-right"></i></div>
+                                        <input type="number" class="contador" id="seconds" value="00">
                                     </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="form-group">
-                                    <label for="som">Som</label>
-                                    <select id="som">
-                                        <option value="">Selecione</option>
-                                    </select>
                                 </div>
                             </div>
 

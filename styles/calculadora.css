@@ -64,7 +64,7 @@
 
 .container-calc .botoes button[data-number],
 .container-calc .botoes button[data-funcionalidade='backspace'] {
-    background-color: var(--black-medium);
+    background-color: var(--black-ultra-light);
     color: var(--white);
     border-color: var(--black-medium);
 }

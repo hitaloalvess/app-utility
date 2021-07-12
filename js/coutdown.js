@@ -3,6 +3,7 @@ import Countdown from "./coutdown/coutdownModel.js";
 export default function createCoutdown(document) {
 
     const coutdown = Countdown()
+        // coutdown.viewTime(0, 0, 10)
 
     document.querySelectorAll(`[data-type]`).forEach(button => {
         button.addEventListener('click', handleButton)

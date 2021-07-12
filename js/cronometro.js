@@ -61,11 +61,11 @@ export const createCronometro = () => {
         button.addEventListener('click', buttonBehavior[typeButton])
     })
 
-    function tempoFormat(s, m, h) {
-        s = s <= 9 ? `0${s}` : s
-        m = m <= 9 ? `0${m}` : m
-        h = h <= 9 ? `0${h}` : h
+    function tempoFormat(seconds, minutes, hours) {
+        seconds = seconds <= 9 ? `0${seconds}` : seconds
+        minutes = minutes <= 9 ? `0${minutes}` : minutes
+        hours = hours <= 9 ? `0${hours}` : hours
 
-        return `${h}:${m}:${s}`
+        return `${hours}:${minutes}:${seconds}`
     }
 }

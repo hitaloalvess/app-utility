@@ -17,7 +17,8 @@
 
 /*ACTIONS*/
 
-.container-countdown .actions {
+.container-countdown .actions,
+.container-countdown .actions .group-actions {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -51,7 +52,8 @@
     color: var(--white);
 }
 
-.container-countdown .actions .action.disabled {
+.container-countdown .actions [data-type="adicionar"].disabled,
+.container-countdown .actions .group-actions.disabled {
     display: none;
 }
 
@@ -246,6 +248,7 @@ form .row .form-group+.form-group:not(:last-child) {
 }
 
 .form-group input[type="text"],
+.form-group input[type="number"],
 .form-group select {
     padding: 1.2rem;
     font-size: clamp(1.4rem, 2vw, 2rem);
@@ -257,6 +260,7 @@ form .row .form-group+.form-group:not(:last-child) {
     transition: border-color .2s ease-in;
 }
 
+.form-group input[type="number"]:focus,
 .form-group input[type="text"]:focus,
 .form-group select:focus {
     border-color: var(--orange);
@@ -266,6 +270,7 @@ form .row .form-group+.form-group:not(:last-child) {
     background-color: var(--black-light);
 }
 
+.form-group input[type="number"],
 .form-group input[type="text"] {
     font-size: clamp(1.4rem, 2vw, 2rem);
     background-color: var(--black-medium);
@@ -283,8 +288,9 @@ form .row .form-group label {
 }
 
 form .row .form-group .button-group {
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: var(--orange);
     border: 0 .1rem solid transparent;
     border-radius: .4rem;
@@ -328,4 +334,13 @@ form .footer input:nth-child(1) {
 form .footer input:nth-child(2) {
     margin-left: 3%;
     background-color: var(--orange);
+}
+
+
+/*-->Alterando as cores de fundo e texto dos campos com autocomplete*/
+
+input:-webkit-autofill {
+    box-shadow: 0 0 0 3rem var(--black-medium) inset;
+    -webkit-box-shadow: 0 0 0 3rem var(--black-medium) inset;
+    -webkit-text-fill-color: var(--white) !important;
 }
