@@ -14,7 +14,19 @@
  <img src=".github/utility-movie.gif" alt="Application demo" />
 </p>
 
+## 🔖 Layout
 
+#### Desktop First
+
+<p align="center">
+ <img src=".github/desktopFirst.png" alt="Image Desktop First" />
+</p>
+
+#### Mobile First
+
+<p align="center">
+ <img src=".github/mobileFirst.png" alt="Image Desktop First" />
+</p>
 ## 🚀 Technologies
 
 This project was developed with the following technologies:
