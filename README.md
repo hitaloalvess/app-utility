@@ -20,13 +20,13 @@
 #### Desktop First
 
 <p align="center">
- <img src=".github/desktopFirst.png" alt="Image Desktop First" />
+ <img src=".github/desktopFirst.PNG" alt="Image Desktop First" />
 </p>
 
 #### Mobile First
 
 <p align="center">
- <img src=".github/mobileFirst.png" alt="Image Desktop First" />
+ <img src=".github/mobileFirst.PNG" alt="Image Desktop First" />
 </p>
 
 ## 🚀 Technologies
